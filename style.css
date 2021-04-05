@@ -80,9 +80,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   text-align: center;
 }
 
@@ -90,6 +87,13 @@ footer {
   width: 100%;
   padding: 0 10.5%;
   height: 5.25%;
+  color: var(--prDesaturatedRed);
+  font-size: 0.85em;
+}
+
+footer a {
+  color: var(--neuGrayishRed);
+  text-decoration: none;
 }
 
 /*========
@@ -99,6 +103,8 @@ footer {
   font-size: 2.25em;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  margin-top: 15.5%;
+  margin-bottom: 8.5%;
 }
 
 .title span {
@@ -111,14 +117,63 @@ footer {
   line-height: 1.5em;
   font-weight: 600;
   font-size: 0.85em;
+  margin-bottom: 8.5%;
+}
+
+.email-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .email-form input {
-  border-radius: 10px;
-  border: solid 1px var(--prDesaturatedRed);
+  width: 100%;
+  padding: 1em 0 1em 1em;
+  border-radius: 50px;
+  border: solid 2px var(--prDesaturatedRed);
+  color: var(--prDesaturatedRed);
+  font-family: 'Josefin Sans', sans-serif;
+  background: transparent;
+  font-weight: 600;
+  font-size: .85em;
+  opacity: 0.3;
+}
+
+.email-form input::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.email-form input:-ms-input-placeholder {
+  opacity: 1;
+}
+
+.email-form input::-ms-input-placeholder {
+  opacity: 1;
+}
+
+.email-form input::placeholder {
+  opacity: 1;
+}
+
+.email-form button {
+  width: 4.5em;
+  height: 3.5em;
+  border: none;
+  border-radius: 22.5px;
+  background-image: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+  position: absolute;
+  right: 9%;
+  -webkit-box-shadow: 0px 5px 20px 0px var(--prDesaturatedRed);
+          box-shadow: 0px 5px 20px 0px var(--prDesaturatedRed);
 }
 
 /*====
  States
 =====*/
+.email-form button:hover,
+.email-form button:focus {
+  background-image: none;
+  background-color: #f8bfbf;
+}
 /*# sourceMappingURL=style.css.map */
