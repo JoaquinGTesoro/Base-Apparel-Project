@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+/*=========
+ Variables
+==========*/
+:root {
+  --prDesaturatedRed: hsl(0, 36%, 70%);
+  --prSoftRed: hsl(0, 93%, 68%);
+  --neuGrayishRed: hsl(0, 6%, 24%);
+}
+
+/*===========
+ Base Rulers
+============*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--neuGrayishRed);
+}
+
+/*=============
+ Funcionalities
+=============*/
+.split {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/*=======
+ Layout
+========*/
+body {
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  height: 10.5%;
+  padding: 0 10.5%;
+  background-color: white;
+  display: -ms-grid;
+  display: grid;
+  place-items: center start;
+}
+
+main {
+  width: 100%;
+  height: 84.25%;
+  background-image: linear-gradient(135deg, white, #fff5f5);
+}
+
+.hero-img {
+  width: inherit;
+  height: 37%;
+  background-image: url(/images/hero-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info {
+  padding: 0 10.5%;
+  height: 63%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  padding: 0 10.5%;
+  height: 5.25%;
+}
+
+/*========
+ Elements
+=========*/
+.title {
+  font-size: 2.25em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.title span {
+  color: var(--prDesaturatedRed);
+  font-weight: 300;
+}
+
+.description {
+  color: var(--prDesaturatedRed);
+  line-height: 1.5em;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+.email-form input {
+  border-radius: 10px;
+  border: solid 1px var(--prDesaturatedRed);
+}
+
+/*====
+ States
+=====*/
+/*# sourceMappingURL=style.css.map */
