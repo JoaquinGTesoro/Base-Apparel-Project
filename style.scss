@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+/*=========
+ Variables
+==========*/
+
+:root {
+    --prDesaturatedRed: hsl(0, 36%, 70%);
+    --prSoftRed: hsl(0, 93%, 68%);
+    --neuGrayishRed: hsl(0, 6%, 24%);
+}
+
+@mixin gradient($firstColor, $secondColor) {
+    background-image: linear-gradient(135deg, $firstColor, $secondColor);
+}
+
+/*===========
+ Base Rulers
+============*/
+
+*, 
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--neuGrayishRed);
+}
+
+/*=======
+ Layout
+========*/
+
+body {
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+    
+    @media(min-width: 700px) {
+        background-image: url(/images/bg-pattern-desktop.svg);
+        background-repeat: none;
+        background-position: cover;
+        display: grid;
+        grid-template-columns:
+            minmax(11%, 155px) minmax(34%, 476px) minmax(15%, 210px) minmax(40%, 560px);
+        grid-template-rows: 
+            minmax(20.125%, 161px ) minmax(67.875%, 559px) minmax(12%, 96px);
+        grid-template-areas: 
+            "...  header ... image"
+            "...  main   ... image"
+            "...  footer ... image";
+    }
+}
+
+header {
+    width: 100%;
+    height: 10.5%;
+    padding: 0 10.5%;
+    background-color: white;
+    display: grid;
+    place-items: center start;
+    
+    grid-area: header;
+
+    @media(min-width: 700px) {
+        height: 100%;
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
+main {
+    width: 100%;
+    height: 84.25%;
+    @include gradient(hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    grid-area: main;
+
+    @media(min-width: 700px) {
+        background-image: none;
+    }
+}
+
+.image-desktop {
+    display: none;
+
+    @media(min-width: 700px) {
+        display: inline;
+        background-image: url(/images/hero-desktop.jpg);
+        background-repeat: none;
+        background-position: cover;
+        grid-area: image;
+    }
+}
+
+.hero-img {
+    width: inherit;
+    height: 37%;
+    background-image: url(/images/hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media(min-width: 700px) {
+        display: none;
+    }
+}
+
+.info {
+    padding: 0 10.5%;
+    height: 63%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @media(min-width: 700px) {
+        height: 100%;
+        padding: 0;
+        display: grid;
+        grid-template-rows: 
+            minmax(50%, 271.5px) minmax(28%, 152px) minmax(22%, 120px);
+        grid-template-areas:
+            "title"
+            "description"
+            "form"
+    }
+}
+
+footer {
+    width: 100%;
+    padding: 0 10.5%;
+    height: 5.25%;
+    color: var(--prDesaturatedRed);
+    font-size: 0.85em;
+
+    grid-area: footer;
+
+    a {
+        color: var(--neuGrayishRed);
+        text-decoration: none;
+    }
+
+    @media(min-width: 700px) {
+        padding: 0;
+    }
+}
+
+/*========
+ Elements
+=========*/
+
+.title {
+    max-width: 20ch;
+    font-size: 2.25em;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-top: 15.5%;
+    margin-bottom: 8.5%;
+    
+    grid-area: title;
+
+    span {
+        color: var(--prDesaturatedRed);
+        font-weight: 300;
+    }
+}
+
+.description {
+    max-width: 50ch;
+    color: var(--prDesaturatedRed);
+    line-height: 1.5em;
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-bottom: 8.5%;
+
+    grid-area: description;
+}
+
+@media(min-width: 700px) {
+    .title,
+    .description {
+        text-align: start;
+    }
+}
+
+.email-form {
+    width: 100%;
+    display: flex;
+    grid-area: form;
+
+    input {
+        width: 100%;
+        padding: 1em 0 1em 1em;
+        border-radius: 50px;
+        border: solid 2px var(--prDesaturatedRed);
+        color: var(--prDesaturatedRed);
+        font-family: 'Josefin Sans', sans-serif;
+        background: transparent;
+        font-weight: 600;
+        font-size: .85em;
+        opacity: 0.3;
+        
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+
+    button {
+        width: 4.5em;
+        height: 3.5em;
+        border: none;
+        border-radius: 22.5px;
+        @include gradient(hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+        position: absolute;
+        right: 9%;
+        box-shadow: 0px 5px 20px 0px var(--prDesaturatedRed);
+    }
+}
+
+/*====
+ States
+=====*/
+
+.email-form {
+    button:hover,
+    button:focus {
+        background-image: none;
+        background-color: hsl(0, 80%, 86%);
+    }
+}
+

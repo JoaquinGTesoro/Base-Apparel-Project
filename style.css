@@ -25,15 +25,6 @@ html {
   color: var(--neuGrayishRed);
 }
 
-/*=============
- Funcionalities
-=============*/
-.split {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 /*=======
  Layout
 ========*/
@@ -41,6 +32,21 @@ body {
   background-color: white;
   height: 100vh;
   width: 100%;
+}
+
+@media (min-width: 700px) {
+  body {
+    background-image: url(/images/bg-pattern-desktop.svg);
+    background-repeat: none;
+    background-position: cover;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: minmax(11%, 155px) minmax(34%, 476px) minmax(15%, 210px) minmax(40%, 560px);
+        grid-template-columns: minmax(11%, 155px) minmax(34%, 476px) minmax(15%, 210px) minmax(40%, 560px);
+    -ms-grid-rows: minmax(20.125%, 161px) minmax(67.875%, 559px) minmax(12%, 96px);
+        grid-template-rows: minmax(20.125%, 161px) minmax(67.875%, 559px) minmax(12%, 96px);
+        grid-template-areas: "...  header ... image" "...  main   ... image" "...  footer ... image";
+  }
 }
 
 header {
@@ -51,12 +57,42 @@ header {
   display: -ms-grid;
   display: grid;
   place-items: center start;
+  grid-area: header;
+}
+
+@media (min-width: 700px) {
+  header {
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
 main {
   width: 100%;
   height: 84.25%;
   background-image: linear-gradient(135deg, white, #fff5f5);
+  grid-area: main;
+}
+
+@media (min-width: 700px) {
+  main {
+    background-image: none;
+  }
+}
+
+.image-desktop {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .image-desktop {
+    display: inline;
+    background-image: url(/images/hero-desktop.jpg);
+    background-repeat: none;
+    background-position: cover;
+    grid-area: image;
+  }
 }
 
 .hero-img {
@@ -65,6 +101,12 @@ main {
   background-image: url(/images/hero-mobile.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (min-width: 700px) {
+  .hero-img {
+    display: none;
+  }
 }
 
 .info {
@@ -83,12 +125,25 @@ main {
   text-align: center;
 }
 
+@media (min-width: 700px) {
+  .info {
+    height: 100%;
+    padding: 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: minmax(50%, 271.5px) minmax(28%, 152px) minmax(22%, 120px);
+        grid-template-rows: minmax(50%, 271.5px) minmax(28%, 152px) minmax(22%, 120px);
+        grid-template-areas: "title" "description" "form";
+  }
+}
+
 footer {
   width: 100%;
   padding: 0 10.5%;
   height: 5.25%;
   color: var(--prDesaturatedRed);
   font-size: 0.85em;
+  grid-area: footer;
 }
 
 footer a {
@@ -96,15 +151,23 @@ footer a {
   text-decoration: none;
 }
 
+@media (min-width: 700px) {
+  footer {
+    padding: 0;
+  }
+}
+
 /*========
  Elements
 =========*/
 .title {
+  max-width: 20ch;
   font-size: 2.25em;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-top: 15.5%;
   margin-bottom: 8.5%;
+  grid-area: title;
 }
 
 .title span {
@@ -113,11 +176,20 @@ footer a {
 }
 
 .description {
+  max-width: 50ch;
   color: var(--prDesaturatedRed);
   line-height: 1.5em;
   font-weight: 600;
   font-size: 0.85em;
   margin-bottom: 8.5%;
+  grid-area: description;
+}
+
+@media (min-width: 700px) {
+  .title,
+  .description {
+    text-align: start;
+  }
 }
 
 .email-form {
@@ -125,6 +197,7 @@ footer a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  grid-area: form;
 }
 
 .email-form input {
