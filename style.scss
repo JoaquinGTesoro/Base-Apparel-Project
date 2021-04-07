@@ -94,6 +94,17 @@ main {
         background-position: cover;
         grid-area: image;
     }
+
+    @media (min-width: 1500px) {
+        width: 40%;
+        max-width: 560px;
+        height: 100vh;
+        max-height: 800px;
+        position: absolute;
+        right: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 .hero-img {
@@ -135,6 +146,8 @@ footer {
     height: 5.25%;
     color: var(--prDesaturatedRed);
     font-size: 0.85em;
+    position: absolute;
+    bottom: 0;
 
     grid-area: footer;
 
@@ -145,6 +158,7 @@ footer {
 
     @media(min-width: 700px) {
         padding: 0;
+        position: relative;
     }
 }
 
@@ -154,7 +168,7 @@ footer {
 
 .title {
     max-width: 20ch;
-    font-size: 2.25em;
+    font-size: clamp(2.5em, 6vw, 3.5em);
     letter-spacing: 0.3em;
     text-transform: uppercase;
     margin-top: 15.5%;
@@ -177,6 +191,10 @@ footer {
     margin-bottom: 8.5%;
 
     grid-area: description;
+
+    @media(min-width: 700px) {
+        margin-top: 10%;
+    }
 }
 
 @media(min-width: 700px) {
@@ -190,21 +208,21 @@ footer {
     width: 100%;
     display: flex;
     grid-area: form;
+    max-width: 27em;
 
     input {
         width: 100%;
         padding: 1em 0 1em 1em;
         border-radius: 50px;
-        border: solid 2px var(--prDesaturatedRed);
+        border: solid 2px rgba(206, 151, 151, 0.3);
         color: var(--prDesaturatedRed);
         font-family: 'Josefin Sans', sans-serif;
         background: transparent;
         font-weight: 600;
         font-size: .85em;
-        opacity: 0.3;
         
         &::placeholder {
-            opacity: 1;
+            opacity: 0.5;
         }
     }
 
@@ -217,6 +235,16 @@ footer {
         position: absolute;
         right: 9%;
         box-shadow: 0px 5px 20px 0px var(--prDesaturatedRed);
+        transition: all 500ms;
+
+        @media(min-width: 700px) {
+            width: 6.5em;
+            left: 40%;
+        }
+
+        @media(min-width: 1300px) {
+            left: 520px;
+        }
     }
 }
 
@@ -227,8 +255,7 @@ footer {
 .email-form {
     button:hover,
     button:focus {
-        background-image: none;
-        background-color: hsl(0, 80%, 86%);
+        @include gradient(hsl(0, 80%, 86%), hsl(0, 80%, 86%));
     }
 }
 
