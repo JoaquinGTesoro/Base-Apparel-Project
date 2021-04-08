@@ -87,6 +87,7 @@ main {
 
 @media (min-width: 700px) {
   .image-desktop {
+    height: 100vh;
     display: inline;
     background-image: url(/images/hero-desktop.jpg);
     background-repeat: none;
@@ -95,17 +96,20 @@ main {
   }
 }
 
+@media (min-height: 800px) {
+  .image-desktop {
+    display: -ms-grid;
+    display: grid;
+    place-items: center center;
+  }
+}
+
 @media (min-width: 1500px) {
   .image-desktop {
     width: 40%;
     max-width: 560px;
-    height: 100vh;
-    max-height: 800px;
     position: absolute;
     right: 10%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
   }
 }
 
@@ -193,10 +197,10 @@ footer a {
 }
 
 .description {
-  max-width: 50ch;
+  max-width: 45ch;
   color: var(--prDesaturatedRed);
   line-height: 1.5em;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 0.85em;
   margin-bottom: 8.5%;
   grid-area: description;
@@ -252,6 +256,31 @@ footer a {
   opacity: 0.5;
 }
 
+@media (min-width: 700px) {
+  .email-form input {
+    width: 85%;
+  }
+}
+
+.email-form .error {
+  position: absolute;
+  display: none;
+  margin-top: .65em;
+  right: 28%;
+}
+
+@media (min-width: 700px) {
+  .email-form .error {
+    right: 67%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .email-form .error {
+    right: 69%;
+  }
+}
+
 .email-form button {
   width: 4.5em;
   height: 3.5em;
@@ -266,17 +295,45 @@ footer a {
   transition: all 500ms;
 }
 
+@media (min-width: 550px) {
+  .email-form button {
+    right: 11.5%;
+  }
+}
+
+@media (min-width: 625px) {
+  .email-form button {
+    right: 15%;
+  }
+}
+
 @media (min-width: 700px) {
   .email-form button {
     width: 6.5em;
-    left: 40%;
+    left: 35%;
   }
 }
 
 @media (min-width: 1300px) {
   .email-form button {
-    left: 520px;
+    left: 455px;
   }
+}
+
+@media (min-width: 1400px) {
+  .email-form button {
+    position: relative;
+    margin-right: -1em;
+    left: auto;
+  }
+}
+
+.email-form p {
+  position: absolute;
+  margin-top: 4em;
+  margin-left: 1.5em;
+  font-size: 0.85em;
+  color: transparent;
 }
 
 /*====
@@ -285,5 +342,17 @@ footer a {
 .email-form button:hover,
 .email-form button:focus {
   background-image: linear-gradient(135deg, #f8bfbf, #f8bfbf);
+}
+
+.email-form input.wrong {
+  border-color: var(--prSoftRed);
+}
+
+.email-form .error.wrong {
+  display: inline;
+}
+
+.email-form p.wrong {
+  color: var(--prSoftRed);
 }
 /*# sourceMappingURL=style.css.map */
